@@ -25,6 +25,18 @@ int *multiply(int A[], int B[], int m, int n) {
     return prod; 
 } 
 
+// A utility function to print a polynomial 
+void print_poly(int poly[], int n) { 
+	for (int i=0; i<n; i++) { 
+	    cout << poly[i]; 
+	    if (i != 0) 
+		    cout << "x^" << i ; 
+	    if (i != n-1) 
+	        cout << " + "; 
+	} 
+    cout << endl;
+} 
+
 // int *plus(int *A, int *B, int m, int n){
 //     int h = max(m, n);
 //     int *prod = new int[h];
@@ -42,23 +54,8 @@ int *multiply(int A[], int B[], int m, int n) {
 //     int *X0 = plus(A0, A1, amid, m-amid);
 //     int *X1 = plus(B0, B1, bmid, n-bmid);
 //     int *X = dac_multiply(, plus(A0, A1, amid, m-amid), );
-
 // }
 
-// A utility function to print a polynomial 
-void printPoly(int poly[], int n) { 
-
-	for (int i=0; i<n; i++) { 
-	    cout << poly[i]; 
-	    if (i != 0) 
-		    cout << "x^" << i ; 
-	    if (i != n-1) 
-	        cout << " + "; 
-	} 
-    cout << endl;
-} 
-
-// Driver program to test above functions 
 int main() { 
 	// The following array represents polynomial 5 + 10x^2 + 6x^3 
 	int A[] = {5, 0, 10, 6}; 
@@ -69,14 +66,14 @@ int main() {
 	int n = sizeof(B)/sizeof(B[0]);
 
 	cout << "First polynomial is: " << endl; 
-	printPoly(A, m); 
+	print_poly(A, m); 
 	cout << "Second polynomial is: " << endl; 
-	printPoly(B, n); 
+	print_poly(B, n); 
 
 	int *prod = multiply(A, B, m, n); 
 
 	cout << "Product polynomial is: "; 
-	printPoly(prod, m); 
+	print_poly(prod, m); 
 
 	return 0; 
 } 
